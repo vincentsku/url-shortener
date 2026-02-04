@@ -38,6 +38,6 @@ export class UrlController {
     @Res() res: Response,
   ): Promise<void> {
     const originalUrl = await this.urlService.getOriginalUrl(shortCode);
-    res.redirect(HttpStatus.MOVED_PERMANENTLY, originalUrl);
+    res.redirect(HttpStatus.FOUND, originalUrl); // 302 - ensures every click is tracked
   }
 }
